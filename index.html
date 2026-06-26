@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+
+        <nav>
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+        </nav>
+
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <!-- These spans will be styled with CSS to create the three "bars" of the icon. -->
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Theme swicther -->
+        <div class="theme-switcher">
+            <label for="theme-toggle" class="switch-label">
+                <input type="checkbox" id="theme-toggle" class="switch-checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+    </header>
+
+    <section id="hero">
+
+        <div class="container">
+
+
+            <h1>Ankush</h1>
+            <p class="hero-subtitle">Creative Web Developer & UI/UX Enthusiast</p>
+            <p>I design and build beautiful, responsive, and user-friendly websites and applications.</p>
+
+        </div>
+
+    </section>
+
+
+
+
+    <section id="About">
+
+        <div class="container">
+
+
+
+
+            <h2>About me</h2>
+
+
+            <div class="about-content">
+                <!-- First column: The Image -->
+                <div class="about-image">
+
+                    <img src="images/avatar.jpg" alt="A professional headshot of Ankush">
+                </div>
+
+
+                <div class="about-text">
+                    <!-- Second column: The Text Content -->
+
+                    <p> Hello! I'm Ankush, a passionate and creative web developer based in Punjab, India. My journey into the world of coding began with a fascination for how elegant design and powerful technology can come together to create exceptional digital experiences.
+                    </p>
+
+                    <p>I specialize in front-end development, with a strong command of HTML, CSS, and JavaScript. I enjoy bringing ideas to life in the browser and am always eager to learn new technologies and frameworks to expand my skill set. When I’m not coding, you’ll often find me at the gym—my favorite place, where I’ve learned the value of discipline and consistency—reading a good book, or working on personal projects that push me to think creatively and grow as a developer.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects">
+        <!-- 
+            We reuse the same <div class="container"> pattern to ensure that the
+            content in this section has the same width and centering as the sections
+            above it. This creates a consistent and professional layout.
+        -->
+        <div class="container">
+
+            <h2>My Projects</h2>
+
+            <div class="projects-container">
+                <!-- project 1 -->
+                <div class="project-card">
+                    <img src="images/logo_playnexa.png" alt="A screenshot or mockup of Project One"
+                        class="project-image">
+                    <div class="project-info">
+                        <h3>PlayNexa</h3>
+                        <p>
+                            My latest practice project — PlayNexa, a gaming website built using HTML, CSS, JavaScript,
+                            PHP, and MySQL.
+                            This project helped me strengthen my skills in full-stack web development, database
+                            integration, API handling, and responsive design.
+                        </p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">View Code</a>
+                    </div>
+                </div>
+
+                <!-- project 2 -->
+
+                <div class="project-card">
+                    <img src="images/logo_habit_tracker.png" alt="A screenshot or mockup of Project One"
+                        class="project-image">
+                    <div class="project-info">
+                        <h3>Habit Tracker</h3>
+                        <p>
+                            Built a Habit Tracker Web Application using HTML, CSS, and JavaScript!<br>
+
+                            This project helps users build consistency by tracking daily habits through a simple and
+                            user-friendly interface.
+                            Users can add habits, mark them as completed, monitor their progress, and keep their data
+                            saved using local storage.
+                        </p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">View Code</a>
+                    </div>
+                </div>
+
+                <!-- project 3 -->
+
+                <div class="project-card">
+                    <img src="images/logo_weather_boutique.png" alt="A screenshot or mockup of Project One"
+                        class="project-image">
+                    <div class="project-info">
+                        <h3>Weather App</h3>
+                        <p>
+                            Built a responsive Weather App using React and Vite that provides real-time weather updates
+                            with a clean and user-friendly interface. The app includes city search with autocomplete
+                            suggestions, live temperature, humidity, wind speed, and weather condition details powered
+                            by API integration.
+                        </p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>I'm always open to discussing new projects or opportunities. Feel free to reach out!</p>
+
+            <form action="https://formspree.io/f/xeebgzwj" method="POST">
+
+                <label for="name">Name</label>
+
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <label for="email">Email</label>
+
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <label for="message">Message</label>
+
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <div class="container">
+
+            <p>&copy; 2026 Ankush. All Rights Reserved.</p>
+
+            <ul>
+                <li><a href="https://github.com/ankush-kashyap/" target="_blank" rel="noopener noreferrer" aria-label="View my profile on GitHub">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/ankush-kashyap-dev/" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn">LinkedIn</a></li>
+                <li><a href="#" target="_blank">Twitter</a></li>
+            </ul>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
