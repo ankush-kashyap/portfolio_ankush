@@ -11,9 +11,9 @@ const projects = [
   {
     title: "E-commerce Website Concept",
     description: "A concept design and front-end implementation for an e-commerce platform. Focused on a clean UI, responsive product grids, and a streamlined checkout process using modern CSS techniques.",
-    imageUrl: "./images/logo_weather.jpg", // Make sure to add this image to your 'images' folder!
-    liveUrl: "#", // Use "#" if there's no live link yet
-    codeUrl: "https://github.com/your-username/ecommerce-repo" // Replace with your repo link
+    imageUrl: "./images/logo_amazon.png", // Make sure to add this image to your 'images' folder!
+    liveUrl: "https://amazonbyankush.netlify.app/", // Use "#" if there's no live link yet
+    codeUrl: "https://github.com/ankush-kashyap/amazon.git" // Replace with your repo link
   },
 
   {
