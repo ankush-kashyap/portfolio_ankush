@@ -3,15 +3,15 @@ const projects = [
  {
     title: "PlayNexa (Gaming platform)",
     description: "My latest practice project — PlayNexa, a gaming website built using HTML, CSS, JavaScript,PHP, and MySQL.",
-    imageUrl: "./images/logo_playnexa1.png",
-    liveUrl: "https://your-live-site.com", // Replace with your actual deployed URL when ready
-    codeUrl: "https://github.com/your-username/your-repo-name" // Replace with your actual GitHub repo
+    imageUrl: "./images/logo_playnexa1.jpg",
+    liveUrl: "https://playnexa.kesug.com", // Replace with your actual deployed URL when ready
+    codeUrl: "https://github.com/ankush-kashyap/PalyNexa.git" // Replace with your actual GitHub repo
   },
 
   {
     title: "E-commerce Website Concept",
     description: "A concept design and front-end implementation for an e-commerce platform. Focused on a clean UI, responsive product grids, and a streamlined checkout process using modern CSS techniques.",
-    imageUrl: "./images/logo_weather.png", // Make sure to add this image to your 'images' folder!
+    imageUrl: "./images/logo_weather.jpg", // Make sure to add this image to your 'images' folder!
     liveUrl: "#", // Use "#" if there's no live link yet
     codeUrl: "https://github.com/your-username/ecommerce-repo" // Replace with your repo link
   },
@@ -19,63 +19,41 @@ const projects = [
   {
     title: "Habit tracker",
     description: "A client-side task management application built with vanilla JavaScript. Allows users to add, edit, delete, and mark tasks as complete, with all data saved to localStorage.",
-    imageUrl: "./images/logo_habit_tracker1.png",
+    imageUrl: "./images/logo_habit_tracker1.jpg",
     liveUrl: "https://habitrackeranx.netlify.app/",
-    codeUrl: "https://github.com/your-username/task-app-repo" 
+    codeUrl: "https://github.com/ankush-kashyap/habit_tracker.git" 
   }
 ];
 
 const themeToggle = document.querySelector('#theme-toggle');
 const htmlElement = document.documentElement;
 const projectsContainer = document.querySelector('.projects-container');
-const contactForm = document.querySelector('#contact-form');
+const contactForm = document.querySelector('#contact');
 const formStatus = document.querySelector('#form-status');
 
 
 const renderProjects = () => {
-
-    let allProjectsHTML = '';
+  let allProjectsHTML = '';
 
   projects.forEach(project => {
-
-
-      const projectCardHTML = `
+    allProjectsHTML += `
       <div class="project-card">
         <div class="project-image-container">
-            <img 
-              src="${project.imageUrl}" 
-              alt="Screenshot of the ${project.title} project" 
-              class="project-image"
-            >
+          <img src="${project.imageUrl}" alt="${project.title}" class="project-image">
         </div>
         <div class="project-info">
           <h3>${project.title}</h3>
           <p>${project.description}</p>
           <div class="project-links">
-            <a 
-              href="${project.liveUrl}" 
-              class="btn" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Live Demo
-            </a>
-            <a 
-              href="${project.codeUrl}" 
-              class="btn btn-secondary" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              View Code
-            </a>
+            <a href="${project.liveUrl}" class="btn" target="_blank">Live Demo</a>
+            <a href="${project.codeUrl}" class="btn btn-secondary" target="_blank">View Code</a>
           </div>
         </div>
       </div>
     `;
-projectsContainer.innerHTML += projectCardHTML;
+  });
 
-});
-projectsContainer.innerHTML = allProjectsHTML;
+  projectsContainer.innerHTML = allProjectsHTML;
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -155,3 +133,11 @@ themeToggle.addEventListener('click', () => {
     }
   }
 })();
+
+
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+});

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Portfolio-Ankush-FrontEnd Developer</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -14,10 +14,20 @@
         <nav>
 
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <div class="theme-switcher">
+                        <h4>Mode</h4>
+
+                        <label for="theme-toggle" class="switch-label">
+                            <input type="checkbox" id="theme-toggle" class="switch-checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
             </ul>
 
         </nav>
@@ -30,12 +40,7 @@
         </button>
 
         <!-- Theme swicther -->
-        <div class="theme-switcher">
-            <label for="theme-toggle" class="switch-label">
-                <input type="checkbox" id="theme-toggle" class="switch-checkbox">
-                <span class="slider"></span>
-            </label>
-        </div>
+
 
     </header>
 
@@ -54,15 +59,15 @@
 
 
 
+    <section id="about">
 
-    <section id="About">
-
+        <h2>About me</h2>
         <div class="container">
 
 
 
 
-            <h2>About me</h2>
+
 
 
             <div class="about-content">
@@ -76,10 +81,16 @@
                 <div class="about-text">
                     <!-- Second column: The Text Content -->
 
-                    <p> Hello! I'm Ankush, a passionate and creative web developer based in Punjab, India. My journey into the world of coding began with a fascination for how elegant design and powerful technology can come together to create exceptional digital experiences.
+                    <p> Hello! I'm Ankush, a passionate and creative web developer based in Punjab, India. My journey
+                        into the world of coding began with a fascination for how elegant design and powerful technology
+                        can come together to create exceptional digital experiences.
                     </p>
 
-                    <p>I specialize in front-end development, with a strong command of HTML, CSS, and JavaScript. I enjoy bringing ideas to life in the browser and am always eager to learn new technologies and frameworks to expand my skill set. When I’m not coding, you’ll often find me at the gym—my favorite place, where I’ve learned the value of discipline and consistency—reading a good book, or working on personal projects that push me to think creatively and grow as a developer.
+                    <p>I specialize in front-end development, with a strong command of HTML, CSS, and JavaScript. I
+                        enjoy bringing ideas to life in the browser and am always eager to learn new technologies and
+                        frameworks to expand my skill set. When I’m not coding, you’ll often find me at the gym—my
+                        favorite place, where I’ve learned the value of discipline and consistency—reading a good book,
+                        or working on personal projects that push me to think creatively and grow as a developer.
                     </p>
 
                 </div>
@@ -91,59 +102,15 @@
     </section>
 
     <section id="projects">
-        <!-- 
-            We reuse the same <div class="container"> pattern to ensure that the
-            content in this section has the same width and centering as the sections
-            above it. This creates a consistent and professional layout.
-        -->
-        <div class="container">
 
-            <h2>My Projects</h2>
+        <h2>My Projects</h2>
+        <div class="projects-container">
 
-            <div class="projects-container">
-                <!-- project 1 -->
-                <div class="project-card">
-                    <img src="images/logo_playnexa.png" alt="A screenshot or mockup of Project One"
-                        class="project-image">
-                    <div class="project-info">
-                        <h3>PlayNexa</h3>
-                        <p>
-                            My latest practice project — PlayNexa, a gaming website built using HTML, CSS, JavaScript,
-                            PHP, and MySQL.
-                            This project helped me strengthen my skills in full-stack web development, database
-                            integration, API handling, and responsive design.
-                        </p>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank">Live Demo</a>
-                        <a href="#" target="_blank">View Code</a>
-                    </div>
-                </div>
 
-                <!-- project 2 -->
 
-                <div class="project-card">
-                    <img src="images/logo_habit_tracker.png" alt="A screenshot or mockup of Project One"
-                        class="project-image">
-                    <div class="project-info">
-                        <h3>Habit Tracker</h3>
-                        <p>
-                            Built a Habit Tracker Web Application using HTML, CSS, and JavaScript!<br>
 
-                            This project helps users build consistency by tracking daily habits through a simple and
-                            user-friendly interface.
-                            Users can add habits, mark them as completed, monitor their progress, and keep their data
-                            saved using local storage.
-                        </p>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank">Live Demo</a>
-                        <a href="#" target="_blank">View Code</a>
-                    </div>
-                </div>
-
-                <!-- project 3 -->
-
+            <!-- project 3 -->
+            <!-- 
                 <div class="project-card">
                     <img src="images/logo_weather_boutique.png" alt="A screenshot or mockup of Project One"
                         class="project-image">
@@ -161,7 +128,7 @@
                         <a href="#" target="_blank">View Code</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
         </div>
@@ -201,9 +168,12 @@
             <p>&copy; 2026 Ankush. All Rights Reserved.</p>
 
             <ul>
-                <li><a href="https://github.com/ankush-kashyap/" target="_blank" rel="noopener noreferrer" aria-label="View my profile on GitHub">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/ankush-kashyap-dev/" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn">LinkedIn</a></li>
-                <li><a href="#" target="_blank">Twitter</a></li>
+                <li><a href="https://github.com/ankush-kashyap/" target="_blank" rel="noopener noreferrer"
+                        aria-label="View my profile on GitHub">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/ankush-kashyap-dev/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Connect with me on LinkedIn">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/anx_lifts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank">Instagram</a></li>
             </ul>
 
         </div>
