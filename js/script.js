@@ -1,143 +1,218 @@
+
+/* ── PROJECTS DATA ───────────────────────────────────── */
 const projects = [
-
- {
-    title: "PlayNexa (Gaming platform)",
-    description: "My latest practice project — PlayNexa, a gaming website built using HTML, CSS, JavaScript,PHP, and MySQL.",
+  {
+    title: "PlayNexa — Gaming Platform",
+    description: "A full-stack gaming web platform with secure PHP authentication, MySQL database, admin panel, and a fully responsive frontend.",
     imageUrl: "./images/logo_playnexa1.jpg",
-    liveUrl: "https://playnexa.kesug.com", // Replace with your actual deployed URL when ready
-    codeUrl: "https://github.com/ankush-kashyap/PalyNexa.git" // Replace with your actual GitHub repo
+    liveUrl: "https://playnexa.kesug.com",
+    codeUrl: "https://github.com/ankush-kashyap/PalyNexa.git",
+    tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"]
   },
-
   {
-    title: "E-commerce Website Concept",
-    description: "A concept design and front-end implementation for an e-commerce platform. Focused on a clean UI, responsive product grids, and a streamlined checkout process using modern CSS techniques.",
-    imageUrl: "./images/logo_amazon.png", // Make sure to add this image to your 'images' folder!
-    liveUrl: "https://amazonbyankush.netlify.app/", // Use "#" if there's no live link yet
-    codeUrl: "https://github.com/ankush-kashyap/amazon.git" // Replace with your repo link
+    title: "E-commerce Concept",
+    description: "A front-end implementation for an e-commerce platform with clean UI, responsive product grids, and a streamlined checkout flow.",
+    imageUrl: "./images/logo_amazon.png",
+    liveUrl: "https://amazonbyankush.netlify.app/",
+    codeUrl: "https://github.com/ankush-kashyap/amazon.git",
+    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"]
   },
-
   {
-    title: "Habit tracker",
-    description: "A client-side task management application built with vanilla JavaScript. Allows users to add, edit, delete, and mark tasks as complete, with all data saved to localStorage.",
+    title: "Habit Tracker",
+    description: "A monthly habit tracking dashboard with daily check-ins, score charts, and a yearly progress overview. Features user auth and persistent data.",
     imageUrl: "./images/logo_habit_tracker1.jpg",
     liveUrl: "https://habitrackeranx.netlify.app/",
-    codeUrl: "https://github.com/ankush-kashyap/habit_tracker.git" 
+    codeUrl: "https://github.com/ankush-kashyap/habit_tracker.git",
+    tech: ["HTML5", "CSS3", "JavaScript", "Chart.js", "LocalStorage"]
   }
 ];
 
-const themeToggle = document.querySelector('#theme-toggle');
-const htmlElement = document.documentElement;
-const projectsContainer = document.querySelector('.projects-container');
-const contactForm = document.querySelector('#contact');
-const formStatus = document.querySelector('#form-status');
-
-
+/* ── RENDER PROJECTS ─────────────────────────────────── */
 const renderProjects = () => {
-  let allProjectsHTML = '';
-
-  projects.forEach(project => {
-    allProjectsHTML += `
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="${project.imageUrl}" alt="${project.title}" class="project-image">
-        </div>
-        <div class="project-info">
-          <h3>${project.title}</h3>
-          <p>${project.description}</p>
-          <div class="project-links">
-            <a href="${project.liveUrl}" class="btn" target="_blank">Live Demo</a>
-            <a href="${project.codeUrl}" class="btn btn-secondary" target="_blank">View Code</a>
-          </div>
+  const container = document.querySelector('.projects-container');
+  if (!container) return;
+  container.innerHTML = projects.map(p => `
+    <div class="project-card reveal">
+      <div class="project-image-container">
+        <img src="${p.imageUrl}" alt="${p.title}" class="project-image" loading="lazy">
+        <div class="project-overlay">
+          <a href="${p.liveUrl}" class="overlay-btn" target="_blank" rel="noopener">Live Demo</a>
+          <a href="${p.codeUrl}" class="overlay-btn" target="_blank" rel="noopener">View Code</a>
         </div>
       </div>
-    `;
-  });
-
-  projectsContainer.innerHTML = allProjectsHTML;
+      <div class="project-info">
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+        <div class="project-tech">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
+        <div class="project-links">
+          <a href="${p.liveUrl}" target="_blank" rel="noopener">Live Demo</a>
+          <a href="${p.codeUrl}" target="_blank" rel="noopener">View Code</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  observeReveal();
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+/* ── TYPING EFFECT ───────────────────────────────────── */
+const typingWords = [
+  "Responsive Websites.",
+  "Clean UI Components.",
+  "Interactive Web Apps.",
+  "Engaging Experiences."
+];
+let wordIdx = 0, charIdx = 0, isDeleting = false;
+const typingEl = document.getElementById('typingText');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
-      // 1. Prevent the default form submission behavior (the page redirect).
-      event.preventDefault();
+const type = () => {
+  if (!typingEl) return;
+  const word = typingWords[wordIdx];
+  typingEl.textContent = isDeleting ? word.slice(0, charIdx--) : word.slice(0, charIdx++);
 
-      // 2. Collect the form data using the FormData API.
-      // This is a modern way to get all form fields.
-      const formData = new FormData(contactForm);
-      const submitButton = contactForm.querySelector('button[type="submit"]');
-
-      // Provide immediate user feedback: show a "sending" state.
-      formStatus.innerHTML = 'Sending...';
-      formStatus.className = 'info'; // You could add an .info style for this
-      formStatus.style.display = 'block';
-      submitButton.disabled = true;
-
-      // 3. Use the fetch API to send the data.
-      fetch(contactForm.action, {
-        method: 'POST',
-        body: formData,
-        // We tell Formspree we want to receive a JSON response.
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        // 4. Handle the response from the server.
-        if (response.ok) {
-          // Success! Show the success message.
-          formStatus.innerHTML = "Thank you! Your message has been sent.";
-          formStatus.className = 'success';
-          // Clear the form fields after a successful submission.
-          contactForm.reset();
-        } else {
-          // The server responded with an error. Try to parse the error message.
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              // This is a validation error from Formspree.
-              formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-            } else {
-              // This is a generic server error.
-              formStatus.innerHTML = "Oops! Something went wrong. Please try again later.";
-            }
-            formStatus.className = 'error';
-          })
-        }
-      }).catch(error => {
-        // 5. Handle network errors (e.g., user is offline).
-        formStatus.innerHTML = "Oops! A network error occurred. Please check your connection and try again.";
-        formStatus.className = 'error';
-      }).finally(() => {
-        // Re-enable the submit button regardless of success or failure.
-        submitButton.disabled = false;
-      });
-    });
+  if (!isDeleting && charIdx > word.length) {
+    setTimeout(() => { isDeleting = true; type(); }, 1800);
+    return;
   }
+  if (isDeleting && charIdx < 0) {
+    isDeleting = false;
+    wordIdx = (wordIdx + 1) % typingWords.length;
+  }
+  setTimeout(type, isDeleting ? 50 : 80);
+};
 
-   renderProjects();
-});
+/* ── SCROLL REVEAL ───────────────────────────────────── */
+const observeReveal = () => {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => obs.observe(el));
+};
 
-themeToggle.addEventListener('click', () => {
-    const newTheme = themeToggle.checked ? 'dark' : 'light';
-    htmlElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+/* ── ACTIVE NAV ON SCROLL ────────────────────────────── */
+const updateActiveNav = () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 120;
+    const bottom = top + sec.offsetHeight;
+    if (scrollY >= top && scrollY < bottom) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-link[href="#${sec.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+};
+
+/* ── SMOOTH SCROLL ───────────────────────────────────── */
+const initSmoothScroll = () => {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      const offset = 80;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+      // close mobile menu
+      const navUl = document.querySelector('header nav ul');
+      if (navUl) navUl.classList.remove('active');
+    });
+  });
+};
+
+/* ── SCROLL TO TOP BUTTON ────────────────────────────── */
+const initScrollTop = () => {
+  const btn = document.createElement('button');
+  btn.className = 'scroll-top';
+  btn.innerHTML = '↑';
+  btn.setAttribute('aria-label', 'Scroll to top');
+  document.body.appendChild(btn);
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.pageYOffset > 500));
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+};
+
+/* ── THEME TOGGLE ────────────────────────────────────── */
+const themeToggle = document.querySelector('#theme-toggle');
+const html = document.documentElement;
+
+themeToggle?.addEventListener('change', () => {
+  const theme = themeToggle.checked ? 'dark' : 'light';
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
 });
 
 (() => {
-  const savedTheme = localStorage.getItem('theme');
- if (savedTheme) {
-    htmlElement.setAttribute('data-theme', savedTheme);
-
-    if (savedTheme === 'dark') {
-      themeToggle.checked = true;
-    }
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    html.setAttribute('data-theme', saved);
+    if (themeToggle && saved === 'dark') themeToggle.checked = true;
   }
 })();
 
-
+/* ── HAMBURGER MENU ──────────────────────────────────── */
 const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('nav');
+const navUl = document.querySelector('header nav ul');
 
-menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
+menuToggle?.addEventListener('click', () => {
+  const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+  menuToggle.setAttribute('aria-expanded', !expanded);
+  navUl?.classList.toggle('active');
 });
+
+/* ── CONTACT FORM ────────────────────────────────────── */
+const initContactForm = () => {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  if (!form || !status) return;
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.style.display = 'none';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        status.textContent = '✅ Thank you! Your message has been sent.';
+        status.className = 'success';
+        form.reset();
+      } else {
+        const data = await res.json();
+        status.textContent = data.errors?.map(e => e.message).join(', ') || 'Something went wrong.';
+        status.className = 'error';
+      }
+    } catch {
+      status.textContent = '⚠️ Network error. Please check your connection.';
+      status.className = 'error';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message 🚀';
+      status.style.display = 'block';
+    }
+  });
+};
+
+/* ── INIT ────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  renderProjects();
+  observeReveal();
+  initSmoothScroll();
+  initScrollTop();
+  initContactForm();
+  type();
+});
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
