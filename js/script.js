@@ -11,11 +11,11 @@ const projects = [
   },
   {
     title: "E-commerce Concept",
-    description: "A front-end implementation for an e-commerce platform with clean UI, responsive product grids, and a streamlined checkout flow.",
+    description: "A frBuilt a responsive Amazon-inspired e-commerce application using React and Vite with product search, category filters, wishlist, shopping cart, protected checkout, product details, local storage, and responsive design.ont-end implementation for an e-commerce platform with clean UI, responsive product grids, and a streamlined checkout flow.",
     imageUrl: "./images/logo_amazon.png",
-    liveUrl: "https://amazonbyankush.netlify.app/",
-    codeUrl: "https://github.com/ankush-kashyap/amazon.git",
-    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"]
+    liveUrl: "https://ecommerce0anx.netlify.app/",
+    codeUrl: "https://github.com/ankush-kashyap/ecommere-app",
+    tech: ["HTML5", "CSS3", "JavaScript","React.js","Responsive Design"]
   },
   {
     title: "Habit Tracker",
