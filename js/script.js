@@ -11,9 +11,9 @@ const projects = [
   },
   {
     title: "E-commerce Concept",
-    description: "A frBuilt a responsive Amazon-inspired e-commerce application using React and Vite with product search, category filters, wishlist, shopping cart, protected checkout, product details, local storage, and responsive design.ont-end implementation for an e-commerce platform with clean UI, responsive product grids, and a streamlined checkout flow.",
+    description: "Developed a responsive React e-commerce application featuring product search, wishlist, shopping cart, protected checkout, responsive design, and local storage.",
     imageUrl: "./images/logo_amazon.png",
-    liveUrl: "https://ecommerce0anx.netlify.app/",
+    liveUrl: "https://anx-amazon.netlify.app/",
     codeUrl: "https://github.com/ankush-kashyap/ecommere-app",
     tech: ["HTML5", "CSS3", "JavaScript","React.js","Responsive Design"]
   },
